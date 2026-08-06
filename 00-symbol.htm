@@ -1,0 +1,71 @@
+<!DocType HTM>
+<HTML lang=en>
+<head>
+	<meta charset=UTF-8>
+	<meta content="initial-scale=1"name=viewport>
+	<link href=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzYjgyZjYiIHN0cm9rZS13aWR0aD0iMS4xMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMgNXYxNE04IDV2MTRtNC0xNHYxNG01LTE0djE0bTQtMTR2MTQiLz48L3N2Zz4 rel=icon>
+	<meta content="light dark"name=color-scheme>
+	<style>
+	*{
+		appearance:none;
+		box-sizing:border-box;
+		&::selection{background-color:light-dark(#BFDBFE,#404040)}}
+	body{
+		background-color:light-dark(#F5F5F5,#171717);
+		margin          :0;}
+	main{
+		border-color:light-dark(#E5E5E5,#262626);
+		border-style:none solid;
+		border-width:1px;
+		margin-left :auto;
+		margin-right:auto;
+		max-width   :80rem;
+		min-height  :100dvh;}
+	input{
+		background-color          :transparent;
+		color                     :light-dark(#404040,#D4D4D4);
+		border-color              :light-dark(#E5E5E5,#262626);
+		border-style              :none none solid none;
+		border-width              :1px;
+		font-family               :monospace;
+		font-size                 :1rem;
+		padding                   :0.8rem;
+		transition-duration       :0.1s;
+		transition-property       :border-color;
+		transition-timing-function:ease-in-out;
+		vertical-align            :top;
+		width                     :100%;
+		@media(max-width:40rem){
+			position    :fixed;
+			border-style:solid none none none;
+			bottom      :0;}
+		&:focus{outline-style:none}
+		&:focus,&:hover{border-color:light-dark(#D4D4D4,#404040)}
+		&:invalid{border-color:light-dark(#FECACA,#7f1d1d)!important;}
+		&::placeholder{
+			color      :light-dark(#737373,#525252);
+			user-select:none;}}</style>
+</head>
+<main>
+	<input
+		inputmode  =numeric
+		maxlength  =12
+		minlength  =11
+		pattern    =^\d{11,12}$
+		placeholder=036000291452
+		spellcheck =false
+		title      ="11–12 digit number"
+		type       =text>
+	<script>
+	const input=document.getElementsByTagName("input")[0];
+	input.addEventListener("paste",(event)=>{
+		event.preventDefault();
+		const paste =(event.clipboardData||window.clipboardData).getData("text");
+		const parse =paste.replace(/\D/g,"");
+		const start =input.selectionStart;
+    const end   =input.selectionEnd;
+    const value =input.value;
+    input.value =value.substring(0,start)+parse+value.substring(end);
+    const cursor=start+parse.length;
+    input.setSelectionRange(cursor,cursor);});
+		</script>
