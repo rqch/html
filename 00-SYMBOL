@@ -1,6 +1,6 @@
 |STATUS|TYPE  |
 |------|------|
-|0     |UPC-A |
+|1     |UPC-A |
 |0     |UPC-E |
 |0     |EAN-8 |
 |0     |EAN-13|
